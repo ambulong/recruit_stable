@@ -106,7 +106,7 @@ if(is_array($params) && count($params) > 0){
 			$value = "";
 		}
 		if(strcasecmp($param['allow_null'],"n") == 0){	/**< 参数不准为空时执行 */
-			if(!isset($value) || trim($value) == ""){
+			if(!isset($value) || (@trim($value) == "" && !is_array($value))){
 				json_out(0, htmlspecialchars($param['label'])."不准为空");
 			}
 		}
