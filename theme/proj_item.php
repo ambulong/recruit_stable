@@ -97,6 +97,9 @@ if(is_json(trim($param['jcase']))){
 		//var_dump($case);
 		if((strcasecmp($param['type'],"checkbox") == 0) && is_json($item[$param['name']])){
 			$item_vals = json_decode($item[$param['name']]);
+			if(!is_array($item_vals)){
+                                $item_vals = array($item_vals);
+                        }
 			if(count($item_vals) > 0){
 				foreach($item_vals as $item_val){
 					if(isset($case[$item_val])){
